@@ -27,7 +27,16 @@ class Game {
             'Doc uh are you telling me you built a time machine out of a DeLorean',
             'I burned through all of my extra lives in a matter of minutes',
             'Going outside is highly overrated',
-            'No one in the world gets what they want and that is beautiful'
+            'No one in the world gets what they want and that is beautiful',
+            'Life is just a chance to grow a soul',
+            'Only a life lived for others is a life worthwhile',
+            'Expect nothing live frugally on surprise',
+            'Because I have loved life, I shall have no sorrow to die',
+            'People living deeply have no fear of death',
+            'Everything has beaut, but not everyone sees it',
+            'Success is the best revenge for anything',
+            'Dont stumble over something behind you',
+            'If you judge people you have no time to love them'
         ];
 
         gamePhrase.forEach(phrase => {
