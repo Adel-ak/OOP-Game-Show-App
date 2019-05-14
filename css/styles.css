@@ -1,0 +1,297 @@
+/* Main styles */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
+
+/* Variables */
+:root {
+  --color-win: #78CF82;
+  --color-lose: #D94545;
+  --color-start: #5b85b7;
+  --color-neutral: #445069;
+  --color-neutral-light: #D2D2D2;
+  --color-keys: #37474F;
+  --color-keys-light: #E5E5E5;
+  --font-size-large: 60px;
+  --font-size-medium: 20px;
+  --transition: all .2s ease-in-out;
+}
+
+/* main */
+
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  justify-content: space-evenly;
+  flex-direction: column;
+  display: flex;
+  height: 100vh;
+  user-select: none;
+  overflow: hidden;
+}
+
+li,
+ol,
+ul {
+  padding: 0;
+  display: inline-block;
+}
+
+h2 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: var(--font-size-large);
+  margin: 0;
+
+}
+
+h1 {
+  font-size: 30px;
+}
+
+button {
+  margin: 6px;
+  border: 1px solid transparent;
+  padding: .5rem 1rem;
+  /* color: var(--color-keys); */
+  font-size: var(--font-size-medium);
+  /* background-color: var(--color-keys-light); */
+  border-radius: 5px;
+  -webkit-transition: var(--transition);
+  -o-transition: var(--transition);
+  transition: var(--transition);
+  cursor: pointer;
+  background-color: #8659c2;
+  color: #FFFFFF;
+
+}
+
+#btn__reset {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  max-height: 900px;
+  text-align: center;
+}
+
+.section {
+  width: 100%;
+  padding: 10px;
+}
+
+#phrase ul li {
+  margin-top: 15px;
+}
+
+/* Title */
+
+.header {
+  color: #3a3f58;
+}
+
+
+/* Phrase */
+
+.letter {
+  font-size: var(--font-size-medium);
+  height: 65px;
+  width: 65px;
+  padding: 20px 1px 0 1px;
+  margin-right: 2px;
+  color: transparent;
+  background: var(--color-neutral-light);
+  border-radius: 5px;
+}
+
+.space {
+  width: 15px;
+}
+
+
+
+.show {
+  color: #fff;
+  background-color: #fa0707;
+  font-size: 20px;
+  height: 65px;
+  width: 65px;
+  padding: 20px 1px 0 1px;
+  margin-right: 2px;
+  border-radius: 5px;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+}
+
+
+/* Keyboard */
+
+.keyrow {
+  display: flex;
+  justify-content: center;
+}
+
+.chosen {
+  border: 2px solid #5eff00;
+  background: #3a3f58;
+  border-radius: 5px;
+  font-size: var(--font-size-medium);
+  color: #FFFFFF;
+}
+
+.wrong {
+  background: #3a3f58;
+  border: 2px solid #ff0000;
+  color: #FFFFFF;
+}
+
+.btn__reset {
+  padding: 16px;
+  margin: 50px auto;
+  background: #fbf8f4;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  border-bottom: solid 4px rgba(0, 0, 0, .3);
+  border-right: solid 3px rgba(0, 0, 0, .3)
+}
+
+.btn__reset:active {
+  padding: 14px 16px 16px 14px;
+  border-bottom: solid 4px rgba(0, 0, 0, 0);
+  border-right: solid 3px rgba(0, 0, 0, 0);
+}
+
+
+/* Overlay */
+
+#overlay {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  color: #FFFFFF;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+}
+
+.title {
+  color: rgb(69, 182, 217);
+}
+
+.start-content {
+  /* Will stretch to width/height of element */
+  background-size: 100% 100%;
+}
+
+/*here adel*/
+.start {
+  background-image: url('../source/start.jpg');
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.start a {
+  color: #fff;
+}
+
+.win {
+  background-image: url('../source/won.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  font: 1em/1.5;
+  color: #ffffff;
+}
+
+.win a {
+  color: var(--color-win);
+}
+
+.lose {
+  background-image: url('../source/lost.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  font: 1em/1.5;
+  color: #ffffff;
+}
+
+.lose a {
+  color: var(--color-lose);
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+/*
+on and off swtcih from
+https://proto.io/freebies/onoff/
+*/
+
+.onoffswitch {
+  top: -5%;
+  position: relative; width: 126px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+  display: block; width: 200%; margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+  font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: "MUSIC ON";
+  padding-left: 0;
+  background-color: rgb(110, 63, 124); color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+  content: "MUSIC OFF";
+  padding-right: 10px;
+  background-color: #EEEEEE; color: #999999;
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block; width: 18px; margin: 6px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 92px;
+  border: 2px solid #999999; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px; 
+}
