@@ -15,6 +15,7 @@ The player continues to select letters until they guess the phrase and win, or m
 
 The player can guess a letter only once. After they’ve guessed a letter, your programming will need to disable that letter on the onscreen keyboard.
 
+A retro video and music is added to the back ground to set the mood for a great experience and entertainment
 
 # Change's Made To The Style
 
@@ -24,7 +25,7 @@ The player can guess a letter only once. After they’ve guessed a letter, your 
 *start overlay H2 color
 
 2.In Game
-*In game overlay back ground video
+*In game back ground video
 *On screen Keyboread color
 *On screen red border (when wrong)
 *On screen green border (when right)
