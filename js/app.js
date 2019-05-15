@@ -36,7 +36,7 @@ $('#myVideo').css({
 });
 //listener for teh start button which start the game and hide the overlay
 $('#btn__reset').click(function() {
-    game.start();
+    game.startGame();
     $('#overlay').fadeOut();
 });
 /*page will listen for the keys pressed and pass in key value 
