@@ -5,8 +5,6 @@
 const onScreenKey = document.querySelectorAll('#qwerty div button');
 const overlay = document.querySelector('#overlay');
 const lifes = document.querySelectorAll('.tries');
-let isWin = false;
-let isMatch = false;
 /*
  the Game class
  missed property will hold the mistake points
@@ -49,17 +47,17 @@ class Game {
      * starts game by fading out the overlay
      * resets everything
      * creates Phrases
-     *  and sets activePhrase with a Phrases and diaplays it in the screen 
+     * and sets activePhrase with a Phrases and diaplays it in the screen 
      */
     startGame() {
         $('#overlay').fadeOut();
         this.reset();
         this.createPhrases();
         this.activePhrase = new Phrase(this.getRandomPhrase());
-        return this.activePhrase.addPhraseToDisplay();
+        this.activePhrase.addPhraseToDisplay();
     }
     /**
-     * picks a random Phrase from tzhe phrases array property
+     *  @return random Phrase from the phrases array property
      */
     getRandomPhrase() {
         const randomPhrase = Math.floor(Math.random() * this.phrases.length);
@@ -75,6 +73,7 @@ class Game {
      * if its wrong it will plus 1 to missed, add class and disble
      */
     handleInteraction(inputKey) {
+        let isMatch = this.activePhrase.checkLetter(inputKey);
         const onScreenLetters = document.querySelectorAll('.letter');
         let text = [];
         onScreenLetters.forEach(letter => text.push(letter.textContent.toLowerCase()));
@@ -84,6 +83,7 @@ class Game {
                 key.disabled = true;
             }
             if (inputKey === key.textContent && key.textContent !== text[text.indexOf(inputKey)]) {
+                //if the key on screen has the class 'wrong' and it was clicked again dont plus 1 to missed
                 if (!(key.classList.contains('wrong'))) {
                     this.missed += 1;
                 }
@@ -91,12 +91,9 @@ class Game {
                 key.disabled = true;
             }
         })
-        this.activePhrase.checkLetter(inputKey);
-        if (isMatch) {
-            this.activePhrase.showMatchedLetter(inputKey);
-        }
-        this.checkForWin();
+        this.activePhrase.showMatchedLetter(inputKey, isMatch);
         this.removeLife();
+        this.checkForWin();
     }
     /**
      * removes life if user makes a mistake and changing the heart image to white
@@ -106,6 +103,7 @@ class Game {
      * call this.gameOver(); to check if user have won or lost
      */
     removeLife() {
+        //to aviod error in console untill player guess wrong
         if (this.missed > 0) {
             const img = lifes[this.missed - 1].firstElementChild;
             img.src = 'source/lostHeart.png';
@@ -118,31 +116,30 @@ class Game {
         this.gameOver();
     }
     /**
-     * checks if all the latters on the display is shown and retur boolean true or flase
+     * Checks for winning move
+     * @return {boolean} True if game has been won, false if game wasn't won
      */
     checkForWin() {
         const shown = document.querySelectorAll('.show');
         const onScreenLetters = document.querySelectorAll('.letter');
         if (shown.length === onScreenLetters.length) {
-            isWin = true;
-            return isWin;
-        } else {
-
+            this.gameOver(true);
         }
     }
     /**
      * checks if missed score is 5 so the game can end and show overlay 
-     * with a lose message and rests the game or check if isWin and show overlay 
-     * with a win message 
+     * with a lose message and rests the game or check if boolen 
+     *@param {boolean} True passed in checkfoWin to show overlay with a win message if won
      */
-    gameOver() {
+    gameOver(boolen) {
         if (this.missed === 5) {
             overlay.className = 'lose';
             overlay.firstElementChild.textContent = 'Finish what you started Phrase Hunter ?';
             $('#overlay').fadeIn();
-        } else if (isWin) {
+        }
+        if (boolen) {
             overlay.className = 'win';
-            overlay.firstElementChild.textContent = 'Go back in Phrase Hunter ?';
+            overlay.firstElementChild.textContent = 'Nice!! Go back in Phrase Hunter ?';
             $('#overlay').fadeIn();
         }
     }
@@ -151,7 +148,6 @@ class Game {
      * removing wrong/chosen class and un disable the keys
      */
     reset() {
-        isWin = false;
         this.missed = 0;
         lifes.forEach(life => {
             const resetImg = life.firstElementChild;

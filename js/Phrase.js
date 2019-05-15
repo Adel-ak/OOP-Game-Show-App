@@ -28,18 +28,18 @@ class Phrase {
         return phraseDiv.innerHTML = html;
     }
 
-    showMatchedLetter(alphabet) {
-        let changeClass = document.querySelectorAll(`.${alphabet}`);
-        changeClass.forEach(ele => ele.className = `show letter ${alphabet}`);
-    }
-
     checkLetter(keyValue) {
         if (this.phrase.includes(keyValue)) {
-            isMatch = true;
-            return isMatch;
+            return true;
         } else {
-            isMatch = false;
-            return isMatch;
+            return false
+        }
+    }
+
+    showMatchedLetter(alphabet,boolean) {
+        if(boolean) {
+            let changeClass = document.querySelectorAll(`.${alphabet}`);
+            changeClass.forEach(ele => ele.className = `show letter ${alphabet}`);
         }
     }
 }
