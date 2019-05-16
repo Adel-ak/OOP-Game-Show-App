@@ -75,23 +75,19 @@ class Game {
     handleInteraction(inputKey) {
         let isMatch = this.activePhrase.checkLetter(inputKey);
         const onScreenLetters = document.querySelectorAll('.letter');
-        let text = [];
-        onScreenLetters.forEach(letter => text.push(letter.textContent.toLowerCase()));
-        onScreenKey.forEach(key => {
-            if (inputKey === key.textContent && key.textContent === text[text.indexOf(inputKey)]) {
-                key.className += ' chosen';
-                key.disabled = true;
+        const keyPressed = $(`.key:contains("${inputKey}")`);
+        if (isMatch) {
+            $(keyPressed).addClass('chosen');
+            $(keyPressed).prop("disabled", true);
+            this.activePhrase.showMatchedLetter(inputKey);
+        } else {
+            //if the key on screen has the class 'wrong' and it was clicked again dont plus 1 to missed
+            if (!($(keyPressed).hasClass('wrong'))) {
+                this.missed += 1;
             }
-            if (inputKey === key.textContent && key.textContent !== text[text.indexOf(inputKey)]) {
-                //if the key on screen has the class 'wrong' and it was clicked again dont plus 1 to missed
-                if (!(key.classList.contains('wrong'))) {
-                    this.missed += 1;
-                }
-                key.className += ' wrong';
-                key.disabled = true;
-            }
-        })
-        this.activePhrase.showMatchedLetter(inputKey, isMatch);
+            $(keyPressed).addClass('wrong');
+            $(keyPressed).prop("disabled", true);
+        }
         this.removeLife();
         this.checkForWin();
     }

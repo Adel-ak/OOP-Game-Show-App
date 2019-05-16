@@ -36,10 +36,8 @@ class Phrase {
         }
     }
 
-    showMatchedLetter(alphabet,boolean) {
-        if(boolean) {
-            let changeClass = document.querySelectorAll(`.${alphabet}`);
-            changeClass.forEach(ele => ele.className = `show letter ${alphabet}`);
-        }
+    showMatchedLetter(alphabet) {
+        let changeClass = document.querySelectorAll(`.${alphabet}`);
+        changeClass.forEach(ele => ele.className = `show letter ${alphabet}`);
     }
 }
