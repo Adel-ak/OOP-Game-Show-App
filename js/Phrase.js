@@ -29,7 +29,8 @@ class Phrase {
     }
 
     checkLetter(keyValue) {
-        if (this.phrase.includes(keyValue)) {
+
+        if (this.phrase.toLowerCase().includes(keyValue)) {
             return true;
         } else {
             return false

@@ -74,7 +74,6 @@ class Game {
      */
     handleInteraction(inputKey) {
         let isMatch = this.activePhrase.checkLetter(inputKey);
-        const onScreenLetters = document.querySelectorAll('.letter');
         const keyPressed = $(`.key:contains("${inputKey}")`);
         if (isMatch) {
             $(keyPressed).addClass('chosen');
