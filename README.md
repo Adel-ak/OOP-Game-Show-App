@@ -25,14 +25,14 @@ A retro video and music is added to the back ground to set the mood for a great 
 *start overlay H2 color
 
 2.In Game
-*In game back ground video
-*On screen Keyboread color
-*On screen red border (when wrong)
-*On screen green border (when right)
-*Hearts color to red from blue
+* In game back ground video
+* On screen Keyboread color
+* On screen red border (when wrong)
+* On screen green border (when right)
+* Hearts color to red from blue
 
 3.Lose Overlay
-*Lose overlay back ground image
+* Lose overlay back ground image
 
 4.Win OverLay
-*Win overlay back ground image
+* Win overlay back ground image
