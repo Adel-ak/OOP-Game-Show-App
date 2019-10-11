@@ -101,7 +101,7 @@ class Game {
         //to aviod error in console untill player guess wrong
         if (this.missed > 0) {
             const img = lifes[this.missed - 1].firstElementChild;
-            img.src = 'source/lostHeart.png';
+            img.src = 'source/lostHeart.webp';
             if (img.className !== 'hurt') {
                 $(img).effect("explode");
             }
@@ -147,7 +147,7 @@ class Game {
         lifes.forEach(life => {
             const resetImg = life.firstElementChild;
             resetImg.className = '';
-            resetImg.src = 'source/liveHeart2.png';
+            resetImg.src = 'source/liveHeart2.webp';
         });
         onScreenKey.forEach(resetKey => {
             resetKey.className = 'key';

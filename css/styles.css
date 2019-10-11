@@ -195,7 +195,7 @@ button {
 
 /*here adel*/
 .start {
-  background-image: url('../source/start.jpg');
+  background-image: url('../source/start.webp');
   position: fixed;
   min-width: 100%;
   min-height: 100%;
@@ -210,7 +210,7 @@ button {
 }
 
 .win {
-  background-image: url('../source/won.png');
+  background-image: url('../source/won.webp');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -224,7 +224,7 @@ button {
 }
 
 .lose {
-  background-image: url('../source/lost.jpg');
+  background-image: url('../source/lost.webp');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
